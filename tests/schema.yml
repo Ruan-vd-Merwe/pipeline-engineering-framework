@@ -1,0 +1,59 @@
+version: 2
+
+# Generic tests for common data quality patterns
+# These can be referenced by any model in the project
+
+# Test for ensuring columns are not null
+not_null_tests:
+  - name: not_null
+    description: "Ensures that the specified column(s) do not contain null values"
+    test_type: not_null
+    severity: error
+    config:
+      store_failures: true
+
+# Test for ensuring columns contain unique values
+unique_tests:
+  - name: unique
+    description: "Ensures that the specified column(s) contain unique values"
+    test_type: unique
+    severity: error
+    config:
+      store_failures: true
+
+# Test for ensuring columns contain only accepted values
+accepted_values_tests:
+  - name: accepted_values
+    description: "Ensures that the specified column(s) contain only accepted values"
+    test_type: accepted_values
+    severity: error
+    config:
+      store_failures: true
+
+# Test for ensuring referential integrity
+relationships_tests:
+  - name: relationships
+    description: "Ensures referential integrity between tables"
+    test_type: relationships
+    severity: error
+    config:
+      store_failures: true
+
+# Test for ensuring data freshness
+freshness_tests:
+  - name: freshness
+    description: "Ensures data is fresh and up-to-date"
+    test_type: freshness
+    severity: warn
+    config:
+      store_failures: true
+
+# Custom test for data quality score
+custom_tests:
+  - name: data_quality_score
+    description: "Calculates and validates data quality score"
+    test_type: custom
+    severity: warn
+    config:
+      store_failures: true
+
